@@ -5,6 +5,8 @@ let boardSize = 16; // Default board size
 // Set the initial value of the input field
 document.getElementById('boardSize').value = boardSize;
 
+
+
 function createBoard() {
     boardSize = parseInt(document.getElementById('boardSize').value, 10);
     const gameBoard = document.getElementById('gameBoard');
@@ -18,7 +20,7 @@ function createBoard() {
 
             // Add a hover effect to the square
             square.addEventListener('mouseover', () => {
-                square.style.backgroundColor = 'white';
+                square.style.backgroundColor = randomColour();
             });
 
         gameBoard.appendChild(square);
@@ -29,10 +31,18 @@ function createBoard() {
 
 document.getElementById('createButton').addEventListener('click', createBoard);
 
-
 createBoard();
 
 
+
+function randomColour () {
+    const red = Math.floor(Math.random()*256);
+    const blue = Math.floor(Math.random()*256);
+    const green = Math.floor(Math.random()*256);
+
+    const rgb = `rgb(${red}, ${green}, ${blue})`;
+    return rgb;
+}
 
 
 
