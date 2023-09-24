@@ -1,9 +1,40 @@
-const elGameGrid = document.getElementById('game-container');
+// script.js
 
-for (let i=1; i<=16; i++){
-const gameSquare = document.createElement('div');
+let boardSize = 16; // Default board size
 
-gameSquare.className = (`game-square gameSquare ${i}`);
+// Set the initial value of the input field
+document.getElementById('boardSize').value = boardSize;
 
-elGameGrid.appendChild(gameSquare);
+function createBoard() {
+    boardSize = parseInt(document.getElementById('boardSize').value, 10);
+    const gameBoard = document.getElementById('gameBoard');
+    gameBoard.innerHTML = ''; // Clear the previous board
+
+    const squareCount = boardSize * boardSize;
+
+    for (let i = 0; i < squareCount; i++) {
+        const square = document.createElement('div');
+        square.className = 'square';
+
+            // Add a hover effect to the square
+            square.addEventListener('mouseover', () => {
+                square.style.backgroundColor = 'white';
+            });
+
+        gameBoard.appendChild(square);
+    }
+
+    gameBoard.style.gridTemplateColumns = `repeat(${boardSize}, 1fr)`;
 }
+
+document.getElementById('createButton').addEventListener('click', createBoard);
+
+
+createBoard();
+
+
+
+
+
+
+

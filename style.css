@@ -1,19 +1,18 @@
-#game-container {
-display: flex;
-flex-wrap: wrap;
-justify-content: space-between;
-align-content: space-between;
-background-color: blue;
-width: 400px;
-border: 2px solid #333;
-
-}
-
-.game-square {
-    width: 50px;
-    height: 50px;
-    background-color: aquamarine;
+body {
     text-align: center;
-    padding: 10px;
-    border: black solid;
 }
+
+.board {
+    display: grid;
+    grid-auto-columns: 1fr; /* Each column occupies an equal fraction of the available width */
+    grid-auto-rows: 1fr; /* Each row occupies an equal fraction of the available height */
+    margin: 30px 100px;
+}
+
+.square {
+    width: 100%; /* Each square takes up 100% of its cell's width */
+    padding-top: 100%; /* Maintain a 1:1 aspect ratio for each square */
+    background-color: black;
+    border: 1px solid gray;
+}
+
